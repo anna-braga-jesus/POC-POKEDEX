@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as C from "./App.styles";
+import React from "react";
+//import { GlobalStyle } from "../assets/css/GlobalStyle";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MyList from "./MyList";
+import Pokemons from "./types/Pokemons/Pokemons";
+import Catalog from "./types/Catalog/Catalog";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <GlobalStyle /> */}
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Catalog />} />
+          <Route path="/list" element={<MyList />} />
+          {/* <Route path='/pokemons/list' element = {<View />} /> */}
+          <Route path="/pokemons" element={<Pokemons />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;
